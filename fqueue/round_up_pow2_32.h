@@ -1,4 +1,4 @@
-/*  round_up_pow2.h
+/*  round_up_pow2_32.h
  *
  *  Copyright (C) 2023 abxh
  *
@@ -18,7 +18,8 @@
  *   @li Intrinsics: https://en.wikipedia.org/wiki/Find_first_set#Tool_and_library_support
  */
 
-#pragma once
+#ifndef ROUND_UP_POW2_32_H
+#define ROUND_UP_POW2_32_H
 
 #include <assert.h>
 #include <stdbool.h>
@@ -56,5 +57,7 @@ static inline uint32_t round_up_pow2_32(uint32_t x)
     return x;
 #endif
 }
+
+#endif
 
 // vim: ft=c

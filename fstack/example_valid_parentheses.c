@@ -4,7 +4,10 @@
 
 #define NAME       paren_stk
 #define VALUE_TYPE char
-#include "fstack.h"
+#define TYPE_DEFINITIONS
+#define FUNCTION_DEFINITIONS
+#define FUNCTION_LINKAGE static inline
+#include "fstack_template.h"
 
 void print_paren_stk(struct paren_stk *stk)
 {

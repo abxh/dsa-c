@@ -1,10 +1,12 @@
-
 #include <float.h>
 #include <math.h>
 
 #define NAME       flt_queue
 #define VALUE_TYPE float
-#include "fqueue.h"
+#define TYPE_DEFINITIONS
+#define FUNCTION_DEFINITIONS
+#define FUNCTION_LINKAGE static inline
+#include "fqueue_template.h"
 
 struct data_stream {
     float avg;

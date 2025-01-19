@@ -28,9 +28,7 @@
     - copy
 */
 
-#define NAME       i64_stk
-#define VALUE_TYPE int64_t
-#include "fstack.h"
+#include "i64_stk.h"
 
 static inline bool check_count_invariance(const struct i64_stk *stk_p, const size_t push_op_count,
                                           const size_t pop_op_count)
@@ -39,9 +37,9 @@ static inline bool check_count_invariance(const struct i64_stk *stk_p, const siz
     return stk_p->count == (push_op_count - pop_op_count);
 }
 
-static inline bool check_capacity_invariance(const struct i64_stk *stk_p, const size_t old_capacity)
+static inline bool check_capacity_invariance(const struct i64_stk *stk_p, const size_t inp_capacity)
 {
-    return stk_p->capacity >= old_capacity;
+    return stk_p->capacity >= inp_capacity;
 }
 
 static inline bool check_empty_full(const struct i64_stk *stk_p, const size_t push_op_count, const size_t pop_op_count)
@@ -80,7 +78,7 @@ static inline bool check_ordered_values(const struct i64_stk *stk_p, const size_
         int64_t value;
 
         size_t tempi;
-        fstack_for_each(stk_p, tempi, value)
+        FSTACK_FOR_EACH(stk_p, tempi, value)
         {
             res &= value == expected_value[index++];
         }
@@ -91,7 +89,7 @@ static inline bool check_ordered_values(const struct i64_stk *stk_p, const size_
         int64_t value;
 
         size_t tempi;
-        fstack_for_each_reverse(stk_p, tempi, value)
+        FSTACK_FOR_EACH_REVERSE(stk_p, tempi, value)
         {
             res &= value == expected_value[--index];
         }

@@ -30,7 +30,7 @@
 
 #define NAME       i64_que
 #define VALUE_TYPE int64_t
-#include "fqueue.h"
+#include "i64_que.h"
 
 static inline bool check_count_invariance(const struct i64_que *que_p, const size_t enqueue_op_count,
                                           const size_t dequeue_op_count)
@@ -81,7 +81,7 @@ static inline bool check_ordered_values(const struct i64_que *que_p, const size_
         int64_t value;
 
         size_t tempi;
-        fqueue_for_each(que_p, tempi, value)
+        FQUEUE_FOR_EACH(que_p, tempi, value)
         {
             res &= value == expected_value[index++];
         }
@@ -92,7 +92,7 @@ static inline bool check_ordered_values(const struct i64_que *que_p, const size_
         int64_t value;
 
         size_t tempi;
-        fqueue_for_each_reverse(que_p, tempi, value)
+        FQUEUE_FOR_EACH_REVERSE(que_p, tempi, value)
         {
             res &= value == expected_value[--index];
         }
