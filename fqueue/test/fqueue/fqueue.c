@@ -30,7 +30,10 @@
 
 #define NAME       i64_que
 #define VALUE_TYPE int64_t
-#include "i64_que.h"
+#define TYPE_DEFINITIONS
+#define FUNCTION_DEFINITIONS
+#define FUNCTION_LINKAGE static inline
+#include "fqueue_template.h"
 
 static inline bool check_count_invariance(const struct i64_que *que_p, const size_t enqueue_op_count,
                                           const size_t dequeue_op_count)

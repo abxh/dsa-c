@@ -50,6 +50,17 @@
 #endif
 
 /**
+ * @brief Macro to check if a number is a power of two.
+ *
+ * @param[in] x             The number at hand.
+ *
+ * @return                  A boolean value indicating whether the number is a power of two.
+ */
+#ifndef IS_POW2
+#define IS_POW2(X) ((X) != 0 && ((X) & ((X) - 1)) == 0)
+#endif
+
+/**
  * @def FQUEUE_FOR_EACH(self, index, value)
  * @brief Iterate over the values in the queue from the front to back.
  *
@@ -111,17 +122,6 @@
 #ifndef FQUEUE_CALC_SIZEOF_OVERFLOWS
 #define FQUEUE_CALC_SIZEOF_OVERFLOWS(fqueue_name, capacity) \
     (capacity > (UINT32_MAX - offsetof(struct fqueue_name, values)) / sizeof(((struct fqueue_name *)0)->values[0]))
-#endif
-
-/**
- * @brief Macro to check if a number is a power of two.
- *
- * @param[in] x             The number at hand.
- *
- * @return                  A boolean value indicating whether the number is a power of two.
- */
-#ifndef IS_POW2
-#define IS_POW2(X) ((X) != 0 && ((X) & ((X) - 1)) == 0)
 #endif
 
 /**

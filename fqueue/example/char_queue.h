@@ -1,6 +1,6 @@
 #pragma once
 
-#define NAME       i64_que
-#define VALUE_TYPE int64_t
+#define NAME       char_queue
+#define VALUE_TYPE char
 #define TYPE_DEFINITIONS
 #include "fqueue_template.h"

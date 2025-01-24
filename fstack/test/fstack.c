@@ -28,7 +28,12 @@
     - copy
 */
 
-#include "i64_stk.h"
+#define NAME       i64_stk
+#define VALUE_TYPE int64_t
+#define TYPE_DEFINITIONS
+#define FUNCTION_DEFINITIONS
+#define FUNCTION_LINKAGE static inline
+#include "fstack_template.h"
 
 static inline bool check_count_invariance(const struct i64_stk *stk_p, const size_t push_op_count,
                                           const size_t pop_op_count)

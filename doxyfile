@@ -1,0 +1,40 @@
+PROJECT_NAME = "dsa-c"
+
+RECURSIVE    = YES
+INPUT        = "./"
+
+INPUT       += readme.md
+USE_MDFILE_AS_MAINPAGE = readme.md
+
+EXAMPLE_PATH = "./"
+# EXAMPLE_RECURSIVE = YES
+
+EXTRACT_STATIC = YES
+
+ENABLE_PREPROCESSING = YES
+MACRO_EXPANSION      = YES
+EXPAND_ONLY_PREDEF   = YES
+
+PREDEFINED = \
+             "FSTACK_NAME=fstack" \
+             "FSTACK_TYPE=fstack_type" \
+             \
+             "FQUEUE_NAME=fqueue" \
+             "FQUEUE_TYPE=fqueue_type" \
+             \
+             "FHASHTABLE_NAME=fhashtable" \
+             "FHASHTABLE_TYPE=fhashtable_type" \
+             "FHASHTABLE_SLOT_TYPE=fhashtable_slot_type" \
+             \
+             "FPQUEUE_NAME=fpqueue" \
+             "FPQUEUE_TYPE=fpqueue_type" \
+             "FPQUEUE_ELEMENT_TYPE=fpqueue_element_type" \
+             \
+             "RBTREE_NAME=rbtree" \
+             "RBTREE_TYPE=rbtree_type" \
+             "RBTREE_NODE_TYPE=rbtree_node_type"
+
+EXPAND_AS_DEFINED = \
+                    PASTE \
+                    XPASTE \
+                    JOIN
