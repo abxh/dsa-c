@@ -33,6 +33,8 @@ PREDEFINED = \
              "RBTREE_NAME=rbtree" \
              "RBTREE_TYPE=rbtree_type" \
              "RBTREE_NODE_TYPE=rbtree_node_type"
+             \
+             "ARENA_NAME=arena" \
 
 EXPAND_AS_DEFINED = \
                     PASTE \

@@ -160,7 +160,7 @@
 
 /**
  * @def FUNCTION_LINKAGE
- * @brief Specify function linkage e.g. FUNCTION_LINKAGE
+ * @brief Specify function linkage e.g. static inline
  */
 #ifndef FUNCTION_LINKAGE
 #define FUNCTION_LINKAGE

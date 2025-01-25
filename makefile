@@ -1,4 +1,5 @@
-TOPTARGETS := all test
+TOPTARGETS := all test clean
+
 SUBDIRS := ./fstack/example
 SUBDIRS += ./fstack/test
 SUBDIRS += ./fqueue/example
@@ -12,6 +13,9 @@ SUBDIRS += ./fpqueue/example
 SUBDIRS += ./fpqueue/test
 SUBDIRS += ./rbtree/example
 SUBDIRS += ./rbtree/test
+SUBDIRS += ./arena/example/arena
+SUBDIRS += ./arena/test/arena
+SUBDIRS += ./arena/test/align
 
 $(TOPTARGETS): $(SUBDIRS)
 
@@ -19,11 +23,3 @@ $(SUBDIRS):
 	$(MAKE) -C $@ $(MAKECMDGOALS)
 
 .PHONY: $(TOPTARGETS) $(SUBDIRS)
-
-SUBCLEAN = $(addsuffix .clean,$(SUBDIRS))
-
-.PHONY: clean $(SUBCLEAN)
-clean: $(SUBCLEAN)
-
-$(SUBCLEAN): %.clean:
-		$(MAKE) -C $* -f Makefile.hvr_gcc clean

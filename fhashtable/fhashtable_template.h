@@ -221,7 +221,7 @@
 
 /**
  * @def FUNCTION_LINKAGE
- * @brief Specify function linkage e.g. FUNCTION_LINKAGE
+ * @brief Specify function linkage e.g. static inline
  */
 #ifndef FUNCTION_LINKAGE
 #define FUNCTION_LINKAGE
@@ -775,6 +775,7 @@ FUNCTION_LINKAGE void JOIN(FHASHTABLE_NAME, copy)(FHASHTABLE_TYPE *restrict dest
 #undef FUNCTION_DEFINITIONS
 #undef TYPE_DEFINITIONS
 
+#undef FHASHTABLE_NAME
 #undef FHASHTABLE_TYPE
 #undef FHASHTABLE_SLOT_TYPE
 #undef FHASHTABLE_INIT
