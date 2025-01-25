@@ -451,6 +451,6 @@ void struct_key_value_test()
 int main(void)
 {
     int_int_full_test();
-    /* bad_hash_func_test(); */
-    /* struct_key_value_test(); */
+    bad_hash_func_test();
+    struct_key_value_test();
 }
