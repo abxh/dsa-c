@@ -48,7 +48,7 @@ void benchmark_uint_ht(size_t n)
 
 void benchmark_std_unordered_map(size_t n)
 {
-    std::unordered_map<uint64_t, uint64_t> map;
+    std::unordered_map<uint64_t, uint64_t> map(n);
     for (size_t i = 0; i < n; i++) {
         uint64_t key = rand();
         std::unordered_map<uint64_t, uint64_t>::iterator res_iterator = map.find(key);
