@@ -36,10 +36,6 @@ extern "C" {
 
 // macro definitions: {{{
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 /**
  * @def NAME
  * @brief Specify custom prefix to arena types and operations.
@@ -361,10 +357,6 @@ FUNCTION_LINKAGE void *JOIN(ARENA_NAME, reallocate)(ARENA_TYPE *self, void *old_
     return JOIN(ARENA_NAME, reallocate_aligned)(self, old_ptr, alignof(max_align_t), old_size, new_size);
 }
 
-#endif
-
-#ifdef __cplusplus
-}
 #endif
 
 // }}}

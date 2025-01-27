@@ -37,15 +37,6 @@ extern "C" {
 
 // macro definitions: {{{
 
-#ifdef __cplusplus
-#ifdef __GNUC__
-#define restrict __restrict__
-#else
-#define restrict
-#endif
-extern "C" {
-#endif
-
 /**
  * @def PASTE(a,b)
  * @brief Paste two tokens together.
@@ -441,10 +432,6 @@ FUNCTION_LINKAGE void JOIN(FSTACK_NAME, copy)(FSTACK_TYPE *restrict dest_ptr, co
     dest_ptr->count = src_ptr->count;
 }
 
-#endif
-
-#ifdef __cplusplus
-}
 #endif
 
 // }}}

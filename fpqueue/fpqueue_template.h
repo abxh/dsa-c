@@ -43,15 +43,6 @@ extern "C" {
 
 // macro definitions: {{{
 
-#ifdef __cplusplus
-#ifdef __GNUC__
-#define restrict __restrict__
-#else
-#define restrict
-#endif
-extern "C" {
-#endif
-
 /**
  * @def PASTE(a,b)
  * @brief Paste two tokens together.
@@ -528,10 +519,6 @@ static inline void JOIN(internal, JOIN(FPQUEUE_NAME, downheap))(FPQUEUE_TYPE *se
 }
 /// @endcond
 
-#endif
-
-#ifdef __cplusplus
-}
 #endif
 
 // }}}

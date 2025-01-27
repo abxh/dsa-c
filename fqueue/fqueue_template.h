@@ -37,15 +37,6 @@ extern "C" {
 
 // macro definitions: {{{
 
-#ifdef __cplusplus
-#ifdef __GNUC__
-#define restrict __restrict__
-#else
-#define restrict
-#endif
-extern "C" {
-#endif
-
 /**
  * @def PASTE(a,b)
  * @brief Paste two tokens together.
@@ -497,10 +488,6 @@ FUNCTION_LINKAGE void JOIN(FQUEUE_NAME, copy)(FQUEUE_TYPE *restrict dest_ptr, co
 #endif
 
 // }}}
-
-#ifdef __cplusplus
-}
-#endif
 
 // macro undefs: {{{
 

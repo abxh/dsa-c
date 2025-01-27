@@ -51,10 +51,6 @@ extern "C" {
 
 // macro definitions: {{{
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 /**
  * @def PASTE(a,b)
  * @brief Paste two tokens together.
@@ -740,10 +736,6 @@ Case_6:
 }
 /// @endcond
 
-#endif
-
-#ifdef __cplusplus
-}
 #endif
 
 // }}}
