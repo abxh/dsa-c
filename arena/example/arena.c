@@ -1,4 +1,4 @@
-#include "arena.h"
+#include "./arena.h"
 
 #define NAME arena
 #define FUNCTION_DEFINITIONS

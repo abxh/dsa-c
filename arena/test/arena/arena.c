@@ -22,7 +22,7 @@
 #define TYPE_DEFINITIONS
 #define FUNCTION_DEFINITIONS
 #define FUNCTION_LINKAGE static inline
-#include "arena.h"
+#include "arena_template.h"
 
 #include <string.h>
 

@@ -13,7 +13,7 @@ SUBDIRS += ./fpqueue/example
 SUBDIRS += ./fpqueue/test
 SUBDIRS += ./rbtree/example
 SUBDIRS += ./rbtree/test
-SUBDIRS += ./arena/example/arena
+SUBDIRS += ./arena/example
 SUBDIRS += ./arena/test/arena
 SUBDIRS += ./arena/test/align
 
