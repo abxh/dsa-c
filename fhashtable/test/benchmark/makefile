@@ -11,7 +11,8 @@ CXXFLAGS   += -DNDEBUG
 CPP_FILES  := $(wildcard *.cpp)
 OBJ_FILES  := $(CPP_FILES:.cpp=.o)
 
-LDFLAGS     += -lstdc++
+LDFLAGS    += -lstdc++
+LDFLAGS    += -flto
 
 .PHONY: all clean test
 
