@@ -19,8 +19,6 @@
  * Example of how `fqueue.h` header file is used in practice.
  */
 
-#include "round_up_pow2_32.h" // round_up_pow2_32
-
 #include <assert.h>
 #include <stdbool.h>
 #include <stddef.h>
@@ -327,6 +325,8 @@ FUNCTION_LINKAGE void JOIN(FQUEUE_NAME, copy)(FQUEUE_TYPE *restrict dest_ptr, co
  * @brief Define the functions
  */
 #ifdef FUNCTION_DEFINITIONS
+
+#include "round_up_pow2_32.h" // round_up_pow2_32
 
 FUNCTION_LINKAGE FQUEUE_TYPE *JOIN(FQUEUE_NAME, init)(FQUEUE_TYPE *self, const uint32_t pow2_capacity)
 {

@@ -22,8 +22,6 @@
  * Example of how `arena.h` header file is used in practice.
  */
 
-#include "align.h" // align, calc_alignment_padding
-
 #include <assert.h>
 #include <stdalign.h>
 #include <stdbool.h>
@@ -226,6 +224,8 @@ FUNCTION_LINKAGE void *JOIN(ARENA_NAME, reallocate)(ARENA_TYPE *self, void *old_
  * @brief Define the functions
  */
 #ifdef FUNCTION_DEFINITIONS
+
+#include "align.h" // align, calc_alignment_padding
 
 FUNCTION_LINKAGE ARENA_STATE_TYPE JOIN(ARENA_NAME, state_save)(ARENA_TYPE *arena_ptr)
 {

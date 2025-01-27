@@ -43,11 +43,8 @@
  * Example of how `fhashtable.h` header file is used in practice.
  */
 
-#include "fnvhash.h"          // fnvhash_32, fnvhash_32_str
-#include "murmurhash.h"       // murmur_32
-#include "round_up_pow2_32.h" // round_up_pow2_32
-
 #include <assert.h>
+#include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -220,7 +217,7 @@
  */
 #ifndef HASH_FUNCTION
 #error "Must define HASH_FUNCTION."
-#define HASH_FUNCTION(key) (murmur3_32((uint8_t *)&(key), sizeof(KEY_TYPE), 0))
+#define HASH_FUNCTION(key) (0)
 #endif
 
 /**
@@ -438,6 +435,8 @@ FUNCTION_LINKAGE void JOIN(FHASHTABLE_NAME, copy)(FHASHTABLE_TYPE *restrict dest
  * @brief Define the functions
  */
 #ifdef FUNCTION_DEFINITIONS
+
+#include "round_up_pow2_32.h" // round_up_pow2_32
 
 FUNCTION_LINKAGE FHASHTABLE_TYPE *JOIN(FHASHTABLE_NAME, init)(FHASHTABLE_TYPE *self, const uint32_t pow2_capacity)
 {
