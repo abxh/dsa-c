@@ -112,13 +112,12 @@ $(function(){initNavTree('fhashtable__template_8h.html',''); initResizable(true)
 
 <p>Fixed-size open-adressing hashtable (robin hood hashing)  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;fnvhash.h&quot;</code><br />
-<code>#include &quot;murmurhash.h&quot;</code><br />
-<code>#include &quot;round_up_pow2_32.h&quot;</code><br />
-<code>#include &lt;assert.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;assert.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &quot;round_up_pow2_32.h&quot;</code><br />
 </div>
 <p><a href="fhashtable__template_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -341,7 +340,7 @@ Functions</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">for</span> ((index) = 0; (index) &lt; (self)-&gt;capacity; (index)++)              \</div>
 <div class="line">        <span class="keywordflow">if</span> ((self)-&gt;slots[(index)].offset != <a class="code hl_define" href="#aa799886ed218fb21a6ca4787cf83e8d4">FHASHTABLE_EMPTY_SLOT_OFFSET</a> \</div>
 <div class="line">            &amp;&amp; ((key_) = (self)-&gt;slots[(index)].key, (value_) = (self)-&gt;slots[(index)].value, <span class="keyword">true</span>))</div>
-<div class="ttc" id="afhashtable__template_8h_html_aa799886ed218fb21a6ca4787cf83e8d4"><div class="ttname"><a href="#aa799886ed218fb21a6ca4787cf83e8d4">FHASHTABLE_EMPTY_SLOT_OFFSET</a></div><div class="ttdeci">#define FHASHTABLE_EMPTY_SLOT_OFFSET</div><div class="ttdoc">Offset constant used to flag empty slots.</div><div class="ttdef"><b>Definition</b> fhashtable_template.h:97</div></div>
+<div class="ttc" id="afhashtable__template_8h_html_aa799886ed218fb21a6ca4787cf83e8d4"><div class="ttname"><a href="#aa799886ed218fb21a6ca4787cf83e8d4">FHASHTABLE_EMPTY_SLOT_OFFSET</a></div><div class="ttdeci">#define FHASHTABLE_EMPTY_SLOT_OFFSET</div><div class="ttdoc">Offset constant used to flag empty slots.</div><div class="ttdef"><b>Definition</b> fhashtable_template.h:94</div></div>
 </div><!-- fragment -->
 <p>Iterate over the non-empty slots in the hashtable in arbitary order. </p>
 <dl class="section warning"><dt>Warning</dt><dd>Modifying the hashtable under the iteration may result in errors.</dd></dl>
@@ -373,8 +372,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">(murmur3_32((uint8_t *)&amp;(key), <span class="keyword">sizeof</span>(<a class="code hl_define" href="#ae35c40bc2f912c11f0e36ac66cba4489">KEY_TYPE</a>), 0))</div>
-<div class="ttc" id="afhashtable__template_8h_html_ae35c40bc2f912c11f0e36ac66cba4489"><div class="ttname"><a href="#ae35c40bc2f912c11f0e36ac66cba4489">KEY_TYPE</a></div><div class="ttdeci">#define KEY_TYPE</div><div class="ttdoc">The key type. This must be manually defined before including this header file.</div><div class="ttdef"><b>Definition</b> fhashtable_template.h:171</div></div>
+<b>Value:</b><div class="fragment"><div class="line">(0)</div>
 </div><!-- fragment -->
 <p>Used to compute indicies of keys. This must be manually defined before including this header file. </p>
 <p>Is undefined once header is included.</p>

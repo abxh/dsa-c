@@ -4,6 +4,7 @@ var arena__template_8h =
     [ "arena_state", "structarena__state.html", "structarena__state" ],
     [ "FUNCTION_DEFINITIONS", "arena__template_8h.html#a1b52e6b472ff1b78d3962fd085e0c80a", null ],
     [ "FUNCTION_LINKAGE", "arena__template_8h.html#a06996a6d01970be031ee16ae43b1e4e3", null ],
+    [ "IS_POW2", "arena__template_8h.html#a36d931d2e505ad8cd048c723c3581e54", null ],
     [ "JOIN", "arena__template_8h.html#a1665af4d61d120cdba4d77101d179703", null ],
     [ "PASTE", "arena__template_8h.html#a188ea780417dce4eb720d161d85f9f44", null ],
     [ "TYPE_DEFINITIONS", "arena__template_8h.html#a5f85d2b39ff41787d7f8ff7fcca1d322", null ],

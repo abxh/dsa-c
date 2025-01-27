@@ -112,14 +112,14 @@ $(function(){initNavTree('arena__template_8h.html',''); initResizable(true); });
 
 <p>Arena allocator.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;align.h&quot;</code><br />
-<code>#include &lt;assert.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;assert.h&gt;</code><br />
 <code>#include &lt;stdalign.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;stddef.h&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;align.h&quot;</code><br />
 </div>
 <p><a href="arena__template_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -138,8 +138,9 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>FUNCTION_DEFINITIONS</b></td></tr>
 <tr class="memdesc:a1b52e6b472ff1b78d3962fd085e0c80a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define the functions. <br /></td></tr>
 <tr class="separator:a1b52e6b472ff1b78d3962fd085e0c80a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f85d2b39ff41787d7f8ff7fcca1d322" id="r_a5f85d2b39ff41787d7f8ff7fcca1d322"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f85d2b39ff41787d7f8ff7fcca1d322">TYPE_DEFINITIONS</a></td></tr>
-<tr class="memdesc:a5f85d2b39ff41787d7f8ff7fcca1d322"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to check if a number is a power of two.  <br /></td></tr>
+<tr class="memitem:a5f85d2b39ff41787d7f8ff7fcca1d322" id="r_a5f85d2b39ff41787d7f8ff7fcca1d322"><td class="memItemLeft" align="right" valign="top"><a id="a5f85d2b39ff41787d7f8ff7fcca1d322" name="a5f85d2b39ff41787d7f8ff7fcca1d322"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TYPE_DEFINITIONS</b></td></tr>
+<tr class="memdesc:a5f85d2b39ff41787d7f8ff7fcca1d322"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define the types. <br /></td></tr>
 <tr class="separator:a5f85d2b39ff41787d7f8ff7fcca1d322"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06996a6d01970be031ee16ae43b1e4e3" id="r_a06996a6d01970be031ee16ae43b1e4e3"><td class="memItemLeft" align="right" valign="top"><a id="a06996a6d01970be031ee16ae43b1e4e3" name="a06996a6d01970be031ee16ae43b1e4e3"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>FUNCTION_LINKAGE</b></td></tr>
@@ -154,6 +155,9 @@ Macros</h2></td></tr>
 <tr class="memitem:a1665af4d61d120cdba4d77101d179703" id="r_a1665af4d61d120cdba4d77101d179703"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1665af4d61d120cdba4d77101d179703">JOIN</a>(a,  b)</td></tr>
 <tr class="memdesc:a1665af4d61d120cdba4d77101d179703"><td class="mdescLeft">&#160;</td><td class="mdescRight">First expand tokens, then paste them together with a _ in between.  <br /></td></tr>
 <tr class="separator:a1665af4d61d120cdba4d77101d179703"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36d931d2e505ad8cd048c723c3581e54" id="r_a36d931d2e505ad8cd048c723c3581e54"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36d931d2e505ad8cd048c723c3581e54">IS_POW2</a>(X)</td></tr>
+<tr class="memdesc:a36d931d2e505ad8cd048c723c3581e54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to check if a number is a power of two.  <br /></td></tr>
+<tr class="separator:a36d931d2e505ad8cd048c723c3581e54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -188,6 +192,33 @@ Functions</h2></td></tr>
 <li><a href="https://www.gingerbill.org/article/2019/02/08/memory-allocation-strategies-002/">https://www.gingerbill.org/article/2019/02/08/memory-allocation-strategies-002/</a> </li>
 </ul>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a36d931d2e505ad8cd048c723c3581e54" name="a36d931d2e505ad8cd048c723c3581e54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36d931d2e505ad8cd048c723c3581e54">&#9670;&#160;</a></span>IS_POW2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_POW2</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>X</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">((X) != 0 &amp;&amp; ((X) &amp; ((X) - 1)) == 0)</div>
+</div><!-- fragment -->
+<p>Macro to check if a number is a power of two. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">X</td><td>The number at hand.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A boolean value indicating whether the number is a power of two. </dd></dl>
+
+</div>
+</div>
 <a id="a1665af4d61d120cdba4d77101d179703" name="a1665af4d61d120cdba4d77101d179703"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1665af4d61d120cdba4d77101d179703">&#9670;&#160;</a></span>JOIN</h2>
 
@@ -234,30 +265,6 @@ Functions</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">a##b</div>
 </div><!-- fragment -->
 <p>Paste two tokens together. </p>
-
-</div>
-</div>
-<a id="a5f85d2b39ff41787d7f8ff7fcca1d322" name="a5f85d2b39ff41787d7f8ff7fcca1d322"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f85d2b39ff41787d7f8ff7fcca1d322">&#9670;&#160;</a></span>TYPE_DEFINITIONS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TYPE_DEFINITIONS</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro to check if a number is a power of two. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">X</td><td>The number at hand.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A boolean value indicating whether the number is a power of two.</dd></dl>
-<p>Define the types </p>
 
 </div>
 </div>
