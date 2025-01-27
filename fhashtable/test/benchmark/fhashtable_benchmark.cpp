@@ -18,6 +18,8 @@ extern "C" {
 #endif
 #endif
 
+#include "murmurhash.h"
+
 #define NAME               uint_ht
 #define KEY_TYPE           uint64_t
 #define VALUE_TYPE         uint64_t

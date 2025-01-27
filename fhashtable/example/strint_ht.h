@@ -1,5 +1,6 @@
 #pragma once
 
+#include <string.h>
 #include "fnvhash.h"
 
 #define NAME               strint_ht
