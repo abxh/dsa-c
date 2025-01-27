@@ -5,7 +5,7 @@
 #include "container_of.h"
 
 typedef struct {
-    struct rbtree_node node; // note: should be first member
+    struct rbtree_node node; // note: should be first member, if following C standard strictly.
     // attached values:
     char c;
 } con_type;
