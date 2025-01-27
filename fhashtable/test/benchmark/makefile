@@ -5,6 +5,7 @@ CXXFLAGS   += -Wall -Wextra
 CXXFLAGS   += -std=c++20
 CXXFLAGS   += -O3
 CXXFLAGS   += -march=native
+CXXFLAGS   += -flto
 CXXFLAGS   += -DNDEBUG
 
 CPP_FILES  := $(wildcard *.cpp)
