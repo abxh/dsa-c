@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['key_0',['key',['../structfhashtable__slot.html#ab6775ebd4fc4d0a7c047f6b8ea7fe9b0',1,'fhashtable_slot::key'],['../structrbtree__node.html#ab3cecc675e2f8741378d376666325f2b',1,'rbtree_node::key']]]
+  ['left_5fptr_0',['left_ptr',['../structrbtree__node.html#a67811326865204c4e1af7973d1a45734',1,'rbtree_node']]]
 ];

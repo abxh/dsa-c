@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['next_5fptr_0',['next_ptr',['../structlist__node.html#ab5153c10b495e00e144df378a45662d5',1,'list_node::next_ptr'],['../structpool__free__node.html#af87caafed46c1995a84c1d5b74aaa031',1,'pool_free_node::next_ptr']]]
+  ['prev_5foffset_0',['prev_offset',['../structarena.html#a0f4902f130313a403f0f716eadf49d57',1,'arena::prev_offset'],['../structarena__state.html#a511a3f1f5910ca90488beac2261e29b4',1,'arena_state::prev_offset']]],
+  ['priority_1',['priority',['../structfpqueue__element.html#a39eb48be1a21880bf15694e54cf19a29',1,'fpqueue_element']]]
 ];

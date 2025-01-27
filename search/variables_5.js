@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['head_0',['head',['../structfreelist.html#ac4bdac5d68432ae39de4c5250897a09f',1,'freelist']]],
-  ['head_5fptr_1',['head_ptr',['../structpool.html#aa519bba90b7ab378aeed973bd93a2b78',1,'pool']]]
+  ['key_0',['key',['../structfhashtable__slot.html#ab6775ebd4fc4d0a7c047f6b8ea7fe9b0',1,'fhashtable_slot::key'],['../structrbtree__node.html#ab3cecc675e2f8741378d376666325f2b',1,'rbtree_node::key']]]
 ];
