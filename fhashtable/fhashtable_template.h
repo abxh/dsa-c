@@ -38,6 +38,11 @@
  *  @li https://www.sebastiansylvan.com/post/robin-hood-hashing-should-be-your-default-hash-table-implementation/
  */
 
+/**
+ * @example fhashtable_example.c
+ * Example of how `fhashtable.h` header file is used in practice.
+ */
+
 #include "fnvhash.h"          // fnvhash_32, fnvhash_32_str
 #include "murmurhash.h"       // murmur_32
 #include "round_up_pow2_32.h" // round_up_pow2_32
@@ -76,7 +81,7 @@
 /**
  * @brief Macro to check if a number is a power of two.
  *
- * @param[in] x             The number at hand.
+ * @param[in] X             The number at hand.
  *
  * @return                  A boolean value indicating whether the number is a power of two.
  */
@@ -150,7 +155,6 @@
  * Is undefined after header is included.
  */
 #ifndef NAME
-#define FHASHTABLE_NAME fhashtable
 #error "Must define NAME."
 #else
 #define FHASHTABLE_NAME NAME

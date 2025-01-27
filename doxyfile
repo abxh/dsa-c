@@ -1,13 +1,23 @@
 PROJECT_NAME = "dsa-c"
 
-RECURSIVE    = YES
-INPUT        = "./"
+# RECURSIVE    = YES
+INPUT        = readme.md
+INPUT       += ./fstack/fstack_template.h
+INPUT       += ./fqueue/fqueue_template.h
+INPUT       += ./fhashtable/fhashtable_template.h
+INPUT       += ./fpqueue/fpqueue_template.h
+INPUT       += ./rbtree/rbtree_template.h
+INPUT       += ./arena/arena_template.h
 
-INPUT       += readme.md
 USE_MDFILE_AS_MAINPAGE = readme.md
 
-EXAMPLE_PATH = "./"
 # EXAMPLE_RECURSIVE = YES
+EXAMPLE_PATH  = ./fstack/example
+EXAMPLE_PATH += ./fqueue/example
+EXAMPLE_PATH += ./fhashtable/example
+EXAMPLE_PATH += ./fpqueue/example
+EXAMPLE_PATH += ./rbtree/example
+EXAMPLE_PATH += ./arena/example
 
 EXTRACT_STATIC = YES
 
@@ -32,11 +42,15 @@ PREDEFINED = \
              \
              "RBTREE_NAME=rbtree" \
              "RBTREE_TYPE=rbtree_type" \
-             "RBTREE_NODE_TYPE=rbtree_node_type"
+             "RBTREE_NODE_TYPE=rbtree_node_type" \
              \
              "ARENA_NAME=arena" \
+             "ARENA_TYPE=arena_type" \
+             "ARENA_STATE_TYPE=arena_state_type"
+
 
 EXPAND_AS_DEFINED = \
                     PASTE \
                     XPASTE \
-                    JOIN
+                    JOIN \
+                    FUNCTION_LINKAGE

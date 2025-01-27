@@ -21,6 +21,11 @@
  * @li CLRS
  */
 
+/**
+ * @example fpqueue_example.c
+ * Example of how `fpqueue.h` header file is used in practice.
+ */
+
 #include <assert.h>
 #include <stdbool.h>
 #include <stddef.h>
@@ -138,7 +143,6 @@
  * Is undefined after header is included.
  */
 #ifndef NAME
-#define FPQUEUE_NAME fpqueue
 #error "Must define NAME."
 #else
 #define FPQUEUE_NAME NAME
@@ -324,6 +328,10 @@ FUNCTION_LINKAGE void JOIN(FPQUEUE_NAME, copy)(FPQUEUE_TYPE *restrict dest_ptr, 
 
 // function definitions: {{{
 
+/**
+ * @def FUNCTION_DEFINITIONS
+ * @brief Define the functions
+ */
 #ifdef FUNCTION_DEFINITIONS
 
 /// @cond DO_NOT_DOCUMENT

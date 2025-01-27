@@ -14,6 +14,11 @@
  * @brief Fixed-size queue based on ring buffer
  */
 
+/**
+ * @example fqueue_example.c
+ * Example of how `fqueue.h` header file is used in practice.
+ */
+
 #include "round_up_pow2_32.h" // round_up_pow2_32
 
 #include <assert.h>
@@ -52,7 +57,7 @@
 /**
  * @brief Macro to check if a number is a power of two.
  *
- * @param[in] x             The number at hand.
+ * @param[in] X             The number at hand.
  *
  * @return                  A boolean value indicating whether the number is a power of two.
  */
@@ -317,6 +322,10 @@ FUNCTION_LINKAGE void JOIN(FQUEUE_NAME, copy)(FQUEUE_TYPE *restrict dest_ptr, co
 
 // function definitions: {{{
 
+/**
+ * @def FUNCTION_DEFINITIONS
+ * @brief Define the functions
+ */
 #ifdef FUNCTION_DEFINITIONS
 
 FUNCTION_LINKAGE FQUEUE_TYPE *JOIN(FQUEUE_NAME, init)(FQUEUE_TYPE *self, const uint32_t pow2_capacity)

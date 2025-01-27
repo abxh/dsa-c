@@ -1,13 +1,24 @@
 
-# dsc
+# dsa-c
 
-![tests](https://github.com/abxh/dsa-c/actions/workflows/tests.yml/badge.svg?event=push)
+[doxygen documentation](https://abxh.github.io/dsa-c/) | ![tests](https://github.com/abxh/dsa-c/actions/workflows/tests.yml/badge.svg?event=push)
 
-A few generic data structures. New memory allocation is kept to a minimum. Not thread-friendly.
+Generic, header-only and performant data structures. New memory allocation is kept to a minimum. Not thread-friendly.
 
 All data types are expected to be Plain-Old-Datas (PODs). No explicit iterator mechanism is provided, but
-macros provides a primitive syntactical replacement.
+macros can provide a primitive syntactical replacement.
 
-Run `make test` to run all tests and examples. The `libsan` and `ubsan` sanitizers are required for building the tests.
+Made for my own exploration and use.
+
+Run `make test` to run all tests and examples. The `libsan` and `ubsan` sanitizers is required for building the tests.
 
 Asserts are used to check various assumptions. Use `NDEBUG` flag to turn off asserts in release builds.
+
+| **File**                                                                                   | Description                                              |                                                                                                                                                             |
+|--------------------------------------------------------------------------------------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [fstack_template.h](https://github.com/abxh/dsa-c/blob/main/dsa/fstack_template.h)         | Fixed-size array-based stack                             | [Documentation](https://abxh.github.io/dsa-c/fstack__template_8h.html) [Example](https://github.com/abxh/dsa-c/blob/main/fstack/example)                    |
+| [fqueue_template.h](https://github.com/abxh/dsa-c/blob/main/dsa/fqueue_template.h)         | Fixed-size queue based on ring buffer                    | [Documentation](https://abxh.github.io/dsa-c/fqueue__template_8h.html) [Example](https://github.com/abxh/dsa-c/blob/main/fqueue/example)                    |
+| [fpqueue_template.h](https://github.com/abxh/dsa-c/blob/main/dsa/fpqueue_template.h)       | Fixed-size priority queue based on binary (max-)heap     | [Documentation](https://abxh.github.io/dsa-c/fpqueue__template_8h.html)  [Example](https://github.com/abxh/dsa-c/blob/main/fpqueue/example)                 |
+| [fhashtable_template.h](https://github.com/abxh/dsa-c/blob/main/dsa/fhashtable_template.h) | Fixed-size open-adressing hashtable (robin hood hashing) | [Documentation](https://abxh.github.io/dsa-c/fhashtable__template_8h.html) [Example](https://github.com/abxh/dsa-c/blob/main/fhashtable/example)            |
+| [rbtree_template.h](https://github.com/abxh/dsa-c/blob/main/dsa/rbtree_template.h)         | Intrusive red-black tree                                 | [Documentation](https://abxh.github.io/dsa-c/rbtree__template_8h.html) [Example](https://github.com/abxh/dsa-c/blob/main/rbtree/example)                    |
+| [arena_template.h](https://github.com/abxh/dsa-c/blob/main/dsa/arena_template.h)           | Arena allocator                                          | [Documentation](https://abxh.github.io/dsa-c/arena__template_8h.html) [Example](https://github.com/abxh/dsa-c/blob/main/arena/example)                      |

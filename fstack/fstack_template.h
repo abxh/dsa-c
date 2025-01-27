@@ -14,6 +14,11 @@
  * @brief Fixed-size array-based stack
  */
 
+/**
+ * @example fstack_example.c
+ * Example of how `fstack.h` header file is used in practice.
+ */
+
 #include <assert.h>
 #include <stdbool.h>
 #include <stddef.h>
@@ -63,7 +68,7 @@
 #endif
 
 /**
- * @def fstack_for_each_reverse(self, index, value)
+ * @def FSTACK_FOR_EACH_REVERSE(self, index, value)
  * @brief Iterate over the values in the stack from the bottom to top.
  *
  * @warning Modifying the stack under the iteration may result in errors.

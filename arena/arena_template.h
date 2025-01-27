@@ -1,4 +1,4 @@
-/*  arena.h
+/*  arena_template.h
  *
  *  Copyright (C) 2023 abxh
  *
@@ -10,11 +10,16 @@
  *  information. */
 
 /**
- * @file arena.h
+ * @file arena_template.h
  * @brief Arena allocator
  *
  * For a comprehensive source, read:
  * @li https://www.gingerbill.org/article/2019/02/08/memory-allocation-strategies-002/
+ */
+
+/**
+ * @example arena_example.c
+ * Example of how `arena.h` header file is used in practice.
  */
 
 #include "align.h" // align, calc_alignment_padding
@@ -36,7 +41,6 @@
  * Is undefined after header is included.
  */
 #ifndef NAME
-#define ARENA_NAME arena
 #define FUNCTION_DEFINITIONS
 #define TYPE_DEFINITIONS
 #error "Must define NAME."
@@ -79,13 +83,19 @@
 /**
  * @brief Macro to check if a number is a power of two.
  *
- * @param[in] x             The number at hand.
+ * @param[in] X             The number at hand.
  *
  * @return                  A boolean value indicating whether the number is a power of two.
  */
 #ifndef IS_POW2
 #define IS_POW2(X) ((X) != 0 && ((X) & ((X) - 1)) == 0)
 #endif
+
+/// @cond DO_NOT_DOCUMENT
+#define ARENA_STATE      JOIN(ARENA_NAME, state)
+#define ARENA_TYPE       struct ARENA_NAME
+#define ARENA_STATE_TYPE struct ARENA_STATE
+/// @endcond
 
 // }}}
 
@@ -111,9 +121,9 @@ struct ARENA_NAME {
  * @brief Tempory arena state struct.
  */
 struct JOIN(ARENA_NAME, state) {
-    struct ARENA_NAME *arena_ptr; ///< Arena pointer.
-    size_t prev_offset;           ///< Arena prev offset.
-    size_t curr_offset;           ///< Arena curr offset.
+    ARENA_TYPE *arena_ptr; ///< Arena pointer.
+    size_t prev_offset;    ///< Arena prev offset.
+    size_t curr_offset;    ///< Arena curr offset.
 };
 
 #endif
@@ -123,20 +133,34 @@ struct JOIN(ARENA_NAME, state) {
 // function declarations: {{{
 
 /**
+ * @brief Save the arena state temporarily.
+ *
+ * @param[in] arena_ptr         The arena whose state to save.
+ */
+FUNCTION_LINKAGE ARENA_STATE_TYPE JOIN(ARENA_NAME, state_save)(ARENA_TYPE *arena_ptr);
+
+/**
+ * @brief Restore the arena state.
+ *
+ * @param[in] prev_state        Stored arena state.
+ */
+FUNCTION_LINKAGE void JOIN(ARENA_NAME, state_restore)(ARENA_STATE_TYPE prev_state);
+
+/**
  * @brief Initialize the arena.
  *
  * @param[in] self              Arena pointer.
  * @param[in] len               Backing buffer length.
  * @param[in] backing_buf       Backing buffer.
  */
-FUNCTION_LINKAGE void JOIN(ARENA_NAME, init)(struct ARENA_NAME *self, const size_t len, unsigned char *backing_buf);
+FUNCTION_LINKAGE void JOIN(ARENA_NAME, init)(ARENA_TYPE *self, const size_t len, unsigned char *backing_buf);
 
 /**
  * @brief Deallocate all allocations in the arena.
  *
  * @param[in] self              Arena pointer.
  */
-FUNCTION_LINKAGE void JOIN(ARENA_NAME, deallocate_all)(struct ARENA_NAME *self);
+FUNCTION_LINKAGE void JOIN(ARENA_NAME, deallocate_all)(ARENA_TYPE *self);
 
 /**
  * @brief Get the pointer to a chunk of the arena. With specific alignment.
@@ -148,8 +172,7 @@ FUNCTION_LINKAGE void JOIN(ARENA_NAME, deallocate_all)(struct ARENA_NAME *self);
  * @return                      A pointer to a zeroed-out memory chunk.
  * @retval NULL                 If the arena doesn't have enough memory for the allocation.
  */
-FUNCTION_LINKAGE void *JOIN(ARENA_NAME, allocate_aligned)(struct ARENA_NAME *self, const size_t alignment,
-                                                          const size_t size);
+FUNCTION_LINKAGE void *JOIN(ARENA_NAME, allocate_aligned)(ARENA_TYPE *self, const size_t alignment, const size_t size);
 
 /**
  * @brief Get the pointer to a chunk of the arena.
@@ -160,7 +183,7 @@ FUNCTION_LINKAGE void *JOIN(ARENA_NAME, allocate_aligned)(struct ARENA_NAME *sel
  * @return                      A pointer to a zeroed-out memory chunk.
  * @retval NULL                 If the arena doesn't have enough memory for the allocation.
  */
-FUNCTION_LINKAGE void *JOIN(ARENA_NAME, allocate)(struct ARENA_NAME *self, const size_t size);
+FUNCTION_LINKAGE void *JOIN(ARENA_NAME, allocate)(ARENA_TYPE *self, const size_t size);
 
 /**
  * @brief Reallocate a previously allocated chunk in the arena. With specific
@@ -176,9 +199,8 @@ FUNCTION_LINKAGE void *JOIN(ARENA_NAME, allocate)(struct ARENA_NAME *self, const
  * @retval NULL                 If arena doesn't have enough memory for the reallocation or invalid parameters are
  *                              given.
  */
-FUNCTION_LINKAGE void *JOIN(ARENA_NAME, reallocate_aligned)(struct ARENA_NAME *self, void *old_ptr_,
-                                                            const size_t alignment, const size_t old_size,
-                                                            const size_t new_size);
+FUNCTION_LINKAGE void *JOIN(ARENA_NAME, reallocate_aligned)(ARENA_TYPE *self, void *old_ptr_, const size_t alignment,
+                                                            const size_t old_size, const size_t new_size);
 
 /**
  * @brief Reallocate a previously allocated chunk in the arena.
@@ -192,22 +214,8 @@ FUNCTION_LINKAGE void *JOIN(ARENA_NAME, reallocate_aligned)(struct ARENA_NAME *s
  * @retval NULL                 If arena doesn't have enough memory for the reallocation or invalid parameters are
  *                              given.
  */
-FUNCTION_LINKAGE void *JOIN(ARENA_NAME, reallocate)(struct ARENA_NAME *self, void *old_ptr, const size_t old_size,
+FUNCTION_LINKAGE void *JOIN(ARENA_NAME, reallocate)(ARENA_TYPE *self, void *old_ptr, const size_t old_size,
                                                     const size_t new_size);
-
-/**
- * @brief Save the arena state temporarily.
- *
- * @param[in] arena_ptr         The arena whose state to save.
- */
-FUNCTION_LINKAGE struct JOIN(ARENA_NAME, state) JOIN(ARENA_NAME, state_save)(struct ARENA_NAME *arena_ptr);
-
-/**
- * @brief Restore the arena state.
- *
- * @param[in] prev_state        Stored arena state.
- */
-FUNCTION_LINKAGE void JOIN(ARENA_NAME, state_restore)(struct JOIN(ARENA_NAME, state) prev_state);
 
 // }}}
 
@@ -219,7 +227,22 @@ FUNCTION_LINKAGE void JOIN(ARENA_NAME, state_restore)(struct JOIN(ARENA_NAME, st
  */
 #ifdef FUNCTION_DEFINITIONS
 
-FUNCTION_LINKAGE void JOIN(ARENA_NAME, init)(struct ARENA_NAME *self, const size_t len, unsigned char *backing_buf)
+FUNCTION_LINKAGE ARENA_STATE_TYPE JOIN(ARENA_NAME, state_save)(ARENA_TYPE *arena_ptr)
+{
+    ARENA_STATE_TYPE curr_state;
+    curr_state.arena_ptr = arena_ptr;
+    curr_state.prev_offset = arena_ptr->prev_offset;
+    curr_state.curr_offset = arena_ptr->curr_offset;
+    return curr_state;
+}
+
+FUNCTION_LINKAGE void JOIN(ARENA_NAME, state_restore)(ARENA_STATE_TYPE prev_state)
+{
+    prev_state.arena_ptr->prev_offset = prev_state.prev_offset;
+    prev_state.arena_ptr->curr_offset = prev_state.curr_offset;
+}
+
+FUNCTION_LINKAGE void JOIN(ARENA_NAME, init)(ARENA_TYPE *self, const size_t len, unsigned char *backing_buf)
 {
     assert(self);
     assert(backing_buf);
@@ -234,7 +257,7 @@ FUNCTION_LINKAGE void JOIN(ARENA_NAME, init)(struct ARENA_NAME *self, const size
     self->prev_offset = 0;
 }
 
-FUNCTION_LINKAGE void JOIN(ARENA_NAME, deallocate_all)(struct ARENA_NAME *self)
+FUNCTION_LINKAGE void JOIN(ARENA_NAME, deallocate_all)(ARENA_TYPE *self)
 {
     assert(self);
 
@@ -242,8 +265,7 @@ FUNCTION_LINKAGE void JOIN(ARENA_NAME, deallocate_all)(struct ARENA_NAME *self)
     self->prev_offset = 0;
 }
 
-FUNCTION_LINKAGE void *JOIN(ARENA_NAME, allocate_aligned)(struct ARENA_NAME *self, const size_t alignment,
-                                                          const size_t size)
+FUNCTION_LINKAGE void *JOIN(ARENA_NAME, allocate_aligned)(ARENA_TYPE *self, const size_t alignment, const size_t size)
 {
     assert(self);
 
@@ -266,7 +288,7 @@ FUNCTION_LINKAGE void *JOIN(ARENA_NAME, allocate_aligned)(struct ARENA_NAME *sel
     return ptr;
 }
 
-FUNCTION_LINKAGE void *JOIN(ARENA_NAME, allocate)(struct ARENA_NAME *self, const size_t size)
+FUNCTION_LINKAGE void *JOIN(ARENA_NAME, allocate)(ARENA_TYPE *self, const size_t size)
 {
     assert(self);
 
@@ -275,8 +297,8 @@ FUNCTION_LINKAGE void *JOIN(ARENA_NAME, allocate)(struct ARENA_NAME *self, const
 
 /// @cond DO_NOT_DOCUMENT
 static inline void *JOIN(JOIN(internal, ARENA_NAME),
-                         try_optimizing_w_prev_offset)(struct ARENA_NAME *self, unsigned char *old_ptr,
-                                                       const size_t old_size, const size_t new_size)
+                         try_optimizing_w_prev_offset)(ARENA_TYPE *self, unsigned char *old_ptr, const size_t old_size,
+                                                       const size_t new_size)
 {
     if (&self->buf_ptr[self->prev_offset] != old_ptr) {
         return NULL;
@@ -294,9 +316,8 @@ static inline void *JOIN(JOIN(internal, ARENA_NAME),
 }
 /// @endcond
 
-FUNCTION_LINKAGE void *JOIN(ARENA_NAME, reallocate_aligned)(struct ARENA_NAME *self, void *old_ptr_,
-                                                            const size_t alignment, const size_t old_size,
-                                                            const size_t new_size)
+FUNCTION_LINKAGE void *JOIN(ARENA_NAME, reallocate_aligned)(ARENA_TYPE *self, void *old_ptr_, const size_t alignment,
+                                                            const size_t old_size, const size_t new_size)
 {
     assert(self);
     assert(IS_POW2(alignment));
@@ -324,27 +345,12 @@ FUNCTION_LINKAGE void *JOIN(ARENA_NAME, reallocate_aligned)(struct ARENA_NAME *s
     return new_mem;
 }
 
-FUNCTION_LINKAGE void *JOIN(ARENA_NAME, reallocate)(struct ARENA_NAME *self, void *old_ptr, const size_t old_size,
+FUNCTION_LINKAGE void *JOIN(ARENA_NAME, reallocate)(ARENA_TYPE *self, void *old_ptr, const size_t old_size,
                                                     const size_t new_size)
 {
     assert(self);
 
     return JOIN(ARENA_NAME, reallocate_aligned)(self, old_ptr, alignof(max_align_t), old_size, new_size);
-}
-
-FUNCTION_LINKAGE struct JOIN(ARENA_NAME, state) JOIN(ARENA_NAME, state_save)(struct ARENA_NAME *arena_ptr)
-{
-    struct JOIN(ARENA_NAME, state) curr_state;
-    curr_state.arena_ptr = arena_ptr;
-    curr_state.prev_offset = arena_ptr->prev_offset;
-    curr_state.curr_offset = arena_ptr->curr_offset;
-    return curr_state;
-}
-
-FUNCTION_LINKAGE void JOIN(ARENA_NAME, state_restore)(struct JOIN(ARENA_NAME, state) prev_state)
-{
-    prev_state.arena_ptr->prev_offset = prev_state.prev_offset;
-    prev_state.arena_ptr->curr_offset = prev_state.curr_offset;
 }
 
 #endif

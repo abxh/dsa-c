@@ -35,6 +35,11 @@
  * @li CLRS
  */
 
+/**
+ * @example rbtree_example.c
+ * Example of how `rbtree.h` header file is used in practice.
+ */
+
 #include <assert.h>
 #include <stdbool.h>
 #include <stddef.h>
@@ -75,7 +80,6 @@
  */
 #ifndef NAME
 #error "Must define NAME."
-#define RBTREE_NAME rbtree
 #else
 #define RBTREE_NAME NAME
 #endif
@@ -290,6 +294,10 @@ FUNCTION_LINKAGE RBTREE_NODE_TYPE *JOIN(RBTREE_NAME, delete_node)(RBTREE_NODE_TY
 
 // function definitions: {{{
 
+/**
+ * @def FUNCTION_DEFINITIONS
+ * @brief Define the functions
+ */
 #ifdef FUNCTION_DEFINITIONS
 
 /// @cond DO_NOT_DOCUMENT
