@@ -22,6 +22,10 @@
  * Example of how `arena.h` header file is used in practice.
  */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <assert.h>
 #include <stdalign.h>
 #include <stdbool.h>
@@ -31,6 +35,10 @@
 #include <string.h>
 
 // macro definitions: {{{
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /**
  * @def NAME
@@ -355,6 +363,10 @@ FUNCTION_LINKAGE void *JOIN(ARENA_NAME, reallocate)(ARENA_TYPE *self, void *old_
 
 #endif
 
+#ifdef __cplusplus
+}
+#endif
+
 // }}}
 
 // macro undefs: {{{
@@ -365,5 +377,9 @@ FUNCTION_LINKAGE void *JOIN(ARENA_NAME, reallocate)(ARENA_TYPE *self, void *old_
 
 #undef ARENA_NAME
 // }}}
+
+#ifdef __cplusplus
+}
+#endif
 
 // vim: ft=c fdm=marker

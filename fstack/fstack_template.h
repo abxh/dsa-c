@@ -19,6 +19,15 @@
  * Example of how `fstack.h` header file is used in practice.
  */
 
+#ifdef __cplusplus
+#ifdef __GNUC__
+#define restrict __restrict__
+#else
+#define restrict
+#endif
+extern "C" {
+#endif
+
 #include <assert.h>
 #include <stdbool.h>
 #include <stddef.h>
@@ -27,6 +36,15 @@
 #include <stdlib.h>
 
 // macro definitions: {{{
+
+#ifdef __cplusplus
+#ifdef __GNUC__
+#define restrict __restrict__
+#else
+#define restrict
+#endif
+extern "C" {
+#endif
 
 /**
  * @def PASTE(a,b)
@@ -425,6 +443,10 @@ FUNCTION_LINKAGE void JOIN(FSTACK_NAME, copy)(FSTACK_TYPE *restrict dest_ptr, co
 
 #endif
 
+#ifdef __cplusplus
+}
+#endif
+
 // }}}
 
 // macro undefs: {{{
@@ -441,5 +463,9 @@ FUNCTION_LINKAGE void JOIN(FSTACK_NAME, copy)(FSTACK_TYPE *restrict dest_ptr, co
 #undef FSTACK_INIT
 
 // }}}
+
+#ifdef __cplusplus
+}
+#endif
 
 // vim: ft=c fdm=marker

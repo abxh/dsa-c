@@ -40,12 +40,20 @@
  * Example of how `rbtree.h` header file is used in practice.
  */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <assert.h>
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
 
 // macro definitions: {{{
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /**
  * @def PASTE(a,b)
@@ -734,6 +742,10 @@ Case_6:
 
 #endif
 
+#ifdef __cplusplus
+}
+#endif
+
 // }}}
 
 // macro undefs: {{{
@@ -766,5 +778,9 @@ Case_6:
 #undef RBTREE_CHILD_DIR
 
 // }}}
+
+#ifdef __cplusplus
+}
+#endif
 
 // vim: ft=c fdm=marker

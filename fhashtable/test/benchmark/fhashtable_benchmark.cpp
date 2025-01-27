@@ -8,16 +8,6 @@
 #include <iostream>
 #include <unordered_map>
 
-extern "C" {
-
-#ifdef __cplusplus
-#ifdef __GNUC__
-#define restrict __restrict__
-#else
-#define restrict
-#endif
-#endif
-
 #include "murmurhash.h"
 
 #define NAME               uint_ht
@@ -43,7 +33,6 @@ void benchmark_uint_ht(size_t n)
             *value_p = *value_p + 1;
         }
     }
-}
 }
 
 void benchmark_std_unordered_map(size_t n)

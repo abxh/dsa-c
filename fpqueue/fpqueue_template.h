@@ -26,6 +26,15 @@
  * Example of how `fpqueue.h` header file is used in practice.
  */
 
+#ifdef __cplusplus
+#ifdef __GNUC__
+#define restrict __restrict__
+#else
+#define restrict
+#endif
+extern "C" {
+#endif
+
 #include <assert.h>
 #include <stdbool.h>
 #include <stddef.h>
@@ -33,6 +42,15 @@
 #include <stdlib.h>
 
 // macro definitions: {{{
+
+#ifdef __cplusplus
+#ifdef __GNUC__
+#define restrict __restrict__
+#else
+#define restrict
+#endif
+extern "C" {
+#endif
 
 /**
  * @def PASTE(a,b)
@@ -512,6 +530,10 @@ static inline void JOIN(internal, JOIN(FPQUEUE_NAME, downheap))(FPQUEUE_TYPE *se
 
 #endif
 
+#ifdef __cplusplus
+}
+#endif
+
 // }}}
 
 // macro undefs: {{{
@@ -533,5 +555,9 @@ static inline void JOIN(internal, JOIN(FPQUEUE_NAME, downheap))(FPQUEUE_TYPE *se
 #undef FHASHTABLE_DOWNHEAP
 
 // }}}
+
+#ifdef __cplusplus
+}
+#endif
 
 // vim: ft=c fdm=marker

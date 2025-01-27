@@ -20,6 +20,10 @@
 
 #pragma once
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * @def container_of(ptr, type, member)
  * @brief Obtain a pointer to the struct that contains the member
@@ -36,4 +40,8 @@
         const typeof(((type *)0)->member) *__mptr = (ptr); \
         (type *)((char *)__mptr - offsetof(type, member)); \
     })
+#endif
+
+#ifdef __cplusplus
+}
 #endif

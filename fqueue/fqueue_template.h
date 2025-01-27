@@ -19,6 +19,15 @@
  * Example of how `fqueue.h` header file is used in practice.
  */
 
+#ifdef __cplusplus
+#ifdef __GNUC__
+#define restrict __restrict__
+#else
+#define restrict
+#endif
+extern "C" {
+#endif
+
 #include <assert.h>
 #include <stdbool.h>
 #include <stddef.h>
@@ -27,6 +36,15 @@
 #include <stdlib.h>
 
 // macro definitions: {{{
+
+#ifdef __cplusplus
+#ifdef __GNUC__
+#define restrict __restrict__
+#else
+#define restrict
+#endif
+extern "C" {
+#endif
 
 /**
  * @def PASTE(a,b)
@@ -480,6 +498,10 @@ FUNCTION_LINKAGE void JOIN(FQUEUE_NAME, copy)(FQUEUE_TYPE *restrict dest_ptr, co
 
 // }}}
 
+#ifdef __cplusplus
+}
+#endif
+
 // macro undefs: {{{
 
 #undef NAME
@@ -496,5 +518,9 @@ FUNCTION_LINKAGE void JOIN(FQUEUE_NAME, copy)(FQUEUE_TYPE *restrict dest_ptr, co
 #undef FQUEUE_IS_FULL
 
 // }}}
+
+#ifdef __cplusplus
+}
+#endif
 
 // vim: ft=c fdm=marker

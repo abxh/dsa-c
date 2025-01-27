@@ -27,6 +27,10 @@
 
 #pragma once
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
@@ -89,5 +93,9 @@ static inline uint32_t murmur3_32(const uint8_t *key_ptr, const uint32_t len, co
     h ^= h >> 16;
     return h;
 }
+
+#ifdef __cplusplus
+}
+#endif
 
 // vim: ft=c

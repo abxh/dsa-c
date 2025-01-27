@@ -18,8 +18,11 @@
  *   @li Intrinsics: https://en.wikipedia.org/wiki/Find_first_set#Tool_and_library_support
  */
 
-#ifndef ROUND_UP_POW2_32_H
-#define ROUND_UP_POW2_32_H
+#pragma once
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include <assert.h>
 #include <stdbool.h>
@@ -73,6 +76,8 @@ static inline uint32_t round_up_pow2_32(uint32_t x)
 #endif
 }
 
+#ifdef __cplusplus
+}
 #endif
 
 // vim: ft=c

@@ -19,8 +19,11 @@
  * @li https://en.cppreference.com/w/cpp/memory/align
  */
 
-#ifndef ALIGN_H
-#define ALIGN_H
+#pragma once
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include <assert.h>
 #include <stdint.h>
@@ -116,4 +119,6 @@ static inline uintptr_t calc_alignment_padding(const size_t alignment, const uin
 #define CALC_ALIGNMENT_PADDING(alignment, ptr) ((((ptr) - 1u + (alignment)) & -(alignment)) - (ptr))
 #endif
 
+#ifdef __cplusplus
+}
 #endif
