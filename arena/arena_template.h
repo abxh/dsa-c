@@ -300,12 +300,12 @@ FUNCTION_LINKAGE void *JOIN(ARENA_NAME, allocate)(ARENA_TYPE *self, const size_t
 }
 
 /// @cond DO_NOT_DOCUMENT
-static inline void *JOIN(JOIN(internal, ARENA_NAME),
-                         try_optimizing_w_prev_offset)(ARENA_TYPE *self, unsigned char *old_ptr, const size_t old_size,
-                                                       const size_t new_size)
+static inline bool JOIN(JOIN(internal, ARENA_NAME),
+                        try_optimizing_w_prev_offset)(ARENA_TYPE *self, unsigned char *old_ptr, const size_t old_size,
+                                                      const size_t new_size)
 {
     if (&self->buf_ptr[self->prev_offset] != old_ptr) {
-        return NULL;
+        return false;
     }
 
     self->curr_offset = self->prev_offset + new_size;
@@ -316,7 +316,7 @@ static inline void *JOIN(JOIN(internal, ARENA_NAME),
         memset(&self->buf_ptr[self->curr_offset], 0, diff);
     }
 
-    return old_ptr;
+    return true;
 }
 /// @endcond
 
@@ -334,7 +334,7 @@ FUNCTION_LINKAGE void *JOIN(ARENA_NAME, reallocate_aligned)(ARENA_TYPE *self, vo
         return NULL;
     }
 
-    const void* has_optimized_w_prev_buf =
+    const bool has_optimized_w_prev_buf =
         JOIN(JOIN(internal, ARENA_NAME), try_optimizing_w_prev_offset)(self, old_ptr, old_size, new_size);
     if (has_optimized_w_prev_buf) {
         return old_ptr;
