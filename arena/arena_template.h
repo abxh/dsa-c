@@ -334,7 +334,7 @@ FUNCTION_LINKAGE void *JOIN(ARENA_NAME, reallocate_aligned)(ARENA_TYPE *self, vo
         return NULL;
     }
 
-    const bool has_optimized_w_prev_buf =
+    const void* has_optimized_w_prev_buf =
         JOIN(JOIN(internal, ARENA_NAME), try_optimizing_w_prev_offset)(self, old_ptr, old_size, new_size);
     if (has_optimized_w_prev_buf) {
         return old_ptr;
