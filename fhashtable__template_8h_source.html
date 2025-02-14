@@ -627,46 +627,47 @@ $(function(){initNavTree('fhashtable__template_8h_source.html',''); initResizabl
 <div class="line"><a id="l00765" name="l00765"></a><span class="lineno">  765</span>    assert(src_ptr-&gt;capacity &lt;= dest_ptr-&gt;capacity);</div>
 <div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span>    assert(dest_ptr-&gt;count == 0);</div>
 <div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span> </div>
-<div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span>    <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; src_ptr-&gt;capacity; i++) {</div>
-<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span>        <a class="code hl_define" href="fhashtable__template_8h.html#a1665af4d61d120cdba4d77101d179703">JOIN</a>(FHASHTABLE_NAME, insert)(dest_ptr, src_ptr-&gt;slots[i].key, src_ptr-&gt;slots[i].value);</div>
-<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span>    }</div>
-<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span> </div>
-<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span>    dest_ptr-&gt;count = src_ptr-&gt;count;</div>
-<div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span>}</div>
+<div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span>    <span class="keywordtype">size_t</span> index;</div>
+<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span>    <a class="code hl_define" href="fhashtable__template_8h.html#ae35c40bc2f912c11f0e36ac66cba4489">KEY_TYPE</a> key;</div>
+<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span>    <a class="code hl_define" href="fstack__template_8h.html#ae17cb099b4c9aee7835032339b5a9e0d">VALUE_TYPE</a> value;</div>
+<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span>    <a class="code hl_define" href="fhashtable__template_8h.html#ac5ab7b0f055e42f3bb9cfb1a489ff199">FHASHTABLE_FOR_EACH</a>(src_ptr, index, key, value) {</div>
+<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span>        <a class="code hl_define" href="fhashtable__template_8h.html#a1665af4d61d120cdba4d77101d179703">JOIN</a>(FHASHTABLE_NAME, insert)(dest_ptr, key, value);</div>
+<div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span>    }</div>
+<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span>}</div>
 </div>
-<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span> </div>
-<div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span> </div>
-<div class="line"><a id="l00777" name="l00777"></a><span class="lineno">  777</span><span class="comment">// }}}</span></div>
-<div class="line"><a id="l00778" name="l00778"></a><span class="lineno">  778</span> </div>
-<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span><span class="comment">// macro undefs: {{{</span></div>
-<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span> </div>
-<div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span><span class="preprocessor">#undef NAME</span></div>
-<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span><span class="preprocessor">#undef KEY_TYPE</span></div>
-<div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span><span class="preprocessor">#undef VALUE_TYPE</span></div>
-<div class="line"><a id="l00784" name="l00784"></a><span class="lineno">  784</span><span class="preprocessor">#undef KEY_IS_EQUAL</span></div>
-<div class="line"><a id="l00785" name="l00785"></a><span class="lineno">  785</span><span class="preprocessor">#undef HASH_FUNCTION</span></div>
-<div class="line"><a id="l00786" name="l00786"></a><span class="lineno">  786</span><span class="preprocessor">#undef FUNCTION_LINKAGE</span></div>
-<div class="line"><a id="l00787" name="l00787"></a><span class="lineno">  787</span><span class="preprocessor">#undef FUNCTION_DEFINITIONS</span></div>
-<div class="line"><a id="l00788" name="l00788"></a><span class="lineno">  788</span><span class="preprocessor">#undef TYPE_DEFINITIONS</span></div>
-<div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span> </div>
-<div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span><span class="preprocessor">#undef FHASHTABLE_NAME</span></div>
-<div class="line"><a id="l00791" name="l00791"></a><span class="lineno">  791</span><span class="preprocessor">#undef FHASHTABLE_TYPE</span></div>
-<div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span><span class="preprocessor">#undef FHASHTABLE_SLOT_TYPE</span></div>
-<div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span><span class="preprocessor">#undef FHASHTABLE_INIT</span></div>
-<div class="line"><a id="l00794" name="l00794"></a><span class="lineno">  794</span><span class="preprocessor">#undef FHASHTABLE_IS_FULL</span></div>
-<div class="line"><a id="l00795" name="l00795"></a><span class="lineno">  795</span><span class="preprocessor">#undef FHASHTABLE_CONTAINS_KEY</span></div>
-<div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span><span class="preprocessor">#undef FHASHTABLE_CALC_SIZEOF</span></div>
-<div class="line"><a id="l00797" name="l00797"></a><span class="lineno">  797</span><span class="preprocessor">#undef FHASHTABLE_SWAP_SLOTS</span></div>
-<div class="line"><a id="l00798" name="l00798"></a><span class="lineno">  798</span><span class="preprocessor">#undef FHASHTABLE_BACKSHIFT</span></div>
-<div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span> </div>
-<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span><span class="comment">// }}}</span></div>
-<div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span> </div>
-<div class="line"><a id="l00802" name="l00802"></a><span class="lineno">  802</span><span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a id="l00803" name="l00803"></a><span class="lineno">  803</span>}</div>
-<div class="line"><a id="l00804" name="l00804"></a><span class="lineno">  804</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00805" name="l00805"></a><span class="lineno">  805</span> </div>
-<div class="line"><a id="l00806" name="l00806"></a><span class="lineno">  806</span><span class="comment">// vim: ft=c fdm=marker</span></div>
+<div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span> </div>
+<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00777" name="l00777"></a><span class="lineno">  777</span> </div>
+<div class="line"><a id="l00778" name="l00778"></a><span class="lineno">  778</span><span class="comment">// }}}</span></div>
+<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span> </div>
+<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span><span class="comment">// macro undefs: {{{</span></div>
+<div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span> </div>
+<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span><span class="preprocessor">#undef NAME</span></div>
+<div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span><span class="preprocessor">#undef KEY_TYPE</span></div>
+<div class="line"><a id="l00784" name="l00784"></a><span class="lineno">  784</span><span class="preprocessor">#undef VALUE_TYPE</span></div>
+<div class="line"><a id="l00785" name="l00785"></a><span class="lineno">  785</span><span class="preprocessor">#undef KEY_IS_EQUAL</span></div>
+<div class="line"><a id="l00786" name="l00786"></a><span class="lineno">  786</span><span class="preprocessor">#undef HASH_FUNCTION</span></div>
+<div class="line"><a id="l00787" name="l00787"></a><span class="lineno">  787</span><span class="preprocessor">#undef FUNCTION_LINKAGE</span></div>
+<div class="line"><a id="l00788" name="l00788"></a><span class="lineno">  788</span><span class="preprocessor">#undef FUNCTION_DEFINITIONS</span></div>
+<div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span><span class="preprocessor">#undef TYPE_DEFINITIONS</span></div>
+<div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span> </div>
+<div class="line"><a id="l00791" name="l00791"></a><span class="lineno">  791</span><span class="preprocessor">#undef FHASHTABLE_NAME</span></div>
+<div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span><span class="preprocessor">#undef FHASHTABLE_TYPE</span></div>
+<div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span><span class="preprocessor">#undef FHASHTABLE_SLOT_TYPE</span></div>
+<div class="line"><a id="l00794" name="l00794"></a><span class="lineno">  794</span><span class="preprocessor">#undef FHASHTABLE_INIT</span></div>
+<div class="line"><a id="l00795" name="l00795"></a><span class="lineno">  795</span><span class="preprocessor">#undef FHASHTABLE_IS_FULL</span></div>
+<div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span><span class="preprocessor">#undef FHASHTABLE_CONTAINS_KEY</span></div>
+<div class="line"><a id="l00797" name="l00797"></a><span class="lineno">  797</span><span class="preprocessor">#undef FHASHTABLE_CALC_SIZEOF</span></div>
+<div class="line"><a id="l00798" name="l00798"></a><span class="lineno">  798</span><span class="preprocessor">#undef FHASHTABLE_SWAP_SLOTS</span></div>
+<div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span><span class="preprocessor">#undef FHASHTABLE_BACKSHIFT</span></div>
+<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span> </div>
+<div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span><span class="comment">// }}}</span></div>
+<div class="line"><a id="l00802" name="l00802"></a><span class="lineno">  802</span> </div>
+<div class="line"><a id="l00803" name="l00803"></a><span class="lineno">  803</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00804" name="l00804"></a><span class="lineno">  804</span>}</div>
+<div class="line"><a id="l00805" name="l00805"></a><span class="lineno">  805</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00806" name="l00806"></a><span class="lineno">  806</span> </div>
+<div class="line"><a id="l00807" name="l00807"></a><span class="lineno">  807</span><span class="comment">// vim: ft=c fdm=marker</span></div>
 <div class="ttc" id="afhashtable__template_8h_html_a0de2e6cd0a27a1ab683d0822f148a667"><div class="ttname"><a href="fhashtable__template_8h.html#a0de2e6cd0a27a1ab683d0822f148a667">FHASHTABLE_CALC_SIZEOF</a></div><div class="ttdeci">#define FHASHTABLE_CALC_SIZEOF(fhashtable_name, capacity)</div><div class="ttdoc">Calculate the size of the hashtable struct. No overflow checks.</div><div class="ttdef"><b>Definition</b> fhashtable_template.h:136</div></div>
 <div class="ttc" id="afhashtable__template_8h_html_a1665af4d61d120cdba4d77101d179703"><div class="ttname"><a href="fhashtable__template_8h.html#a1665af4d61d120cdba4d77101d179703">JOIN</a></div><div class="ttdeci">#define JOIN(a, b)</div><div class="ttdoc">First expand tokens, then paste them together with a _ in between.</div><div class="ttdef"><b>Definition</b> fhashtable_template.h:84</div></div>
 <div class="ttc" id="afhashtable__template_8h_html_a261e2befaaf40b08c99064bb53bf0b44"><div class="ttname"><a href="fhashtable__template_8h.html#a261e2befaaf40b08c99064bb53bf0b44">HASH_FUNCTION</a></div><div class="ttdeci">#define HASH_FUNCTION(key)</div><div class="ttdoc">Used to compute indicies of keys. This must be manually defined before including this header file.</div><div class="ttdef"><b>Definition</b> fhashtable_template.h:229</div></div>
@@ -674,6 +675,7 @@ $(function(){initNavTree('fhashtable__template_8h_source.html',''); initResizabl
 <div class="ttc" id="afhashtable__template_8h_html_a58a9b9662f87dfedd00cc6fd5dde7852"><div class="ttname"><a href="fhashtable__template_8h.html#a58a9b9662f87dfedd00cc6fd5dde7852">KEY_IS_EQUAL</a></div><div class="ttdeci">#define KEY_IS_EQUAL(a, b)</div><div class="ttdoc">Used to compare two keys This must be manually defined before including this header file.</div><div class="ttdef"><b>Definition</b> fhashtable_template.h:214</div></div>
 <div class="ttc" id="afhashtable__template_8h_html_a5c7172a88badcf18323d0633d32c44de"><div class="ttname"><a href="fhashtable__template_8h.html#a5c7172a88badcf18323d0633d32c44de">FHASHTABLE_CALC_SIZEOF_OVERFLOWS</a></div><div class="ttdeci">#define FHASHTABLE_CALC_SIZEOF_OVERFLOWS(fhashtable_name, capacity)</div><div class="ttdoc">Check for a given capacity, if the equivalent size of the hashtable struct overflows.</div><div class="ttdef"><b>Definition</b> fhashtable_template.h:151</div></div>
 <div class="ttc" id="afhashtable__template_8h_html_aa799886ed218fb21a6ca4787cf83e8d4"><div class="ttname"><a href="fhashtable__template_8h.html#aa799886ed218fb21a6ca4787cf83e8d4">FHASHTABLE_EMPTY_SLOT_OFFSET</a></div><div class="ttdeci">#define FHASHTABLE_EMPTY_SLOT_OFFSET</div><div class="ttdoc">Offset constant used to flag empty slots.</div><div class="ttdef"><b>Definition</b> fhashtable_template.h:103</div></div>
+<div class="ttc" id="afhashtable__template_8h_html_ac5ab7b0f055e42f3bb9cfb1a489ff199"><div class="ttname"><a href="fhashtable__template_8h.html#ac5ab7b0f055e42f3bb9cfb1a489ff199">FHASHTABLE_FOR_EACH</a></div><div class="ttdeci">#define FHASHTABLE_FOR_EACH(self, index, key_, value_)</div><div class="ttdoc">Iterate over the non-empty slots in the hashtable in arbitary order.</div><div class="ttdef"><b>Definition</b> fhashtable_template.h:119</div></div>
 <div class="ttc" id="afhashtable__template_8h_html_ae17cb099b4c9aee7835032339b5a9e0d"><div class="ttname"><a href="fhashtable__template_8h.html#ae17cb099b4c9aee7835032339b5a9e0d">VALUE_TYPE</a></div><div class="ttdeci">#define VALUE_TYPE</div><div class="ttdoc">The value type. This must be manually defined before including this header file.</div><div class="ttdef"><b>Definition</b> fhashtable_template.h:191</div></div>
 <div class="ttc" id="afhashtable__template_8h_html_ae35c40bc2f912c11f0e36ac66cba4489"><div class="ttname"><a href="fhashtable__template_8h.html#ae35c40bc2f912c11f0e36ac66cba4489">KEY_TYPE</a></div><div class="ttdeci">#define KEY_TYPE</div><div class="ttdoc">The key type. This must be manually defined before including this header file.</div><div class="ttdef"><b>Definition</b> fhashtable_template.h:177</div></div>
 <div class="ttc" id="afstack__template_8h_html_a06996a6d01970be031ee16ae43b1e4e3"><div class="ttname"><a href="fstack__template_8h.html#a06996a6d01970be031ee16ae43b1e4e3">FUNCTION_LINKAGE</a></div><div class="ttdeci">#define FUNCTION_LINKAGE</div><div class="ttdoc">Specify function linkage e.g. static inline.</div><div class="ttdef"><b>Definition</b> fstack_template.h:157</div></div>
