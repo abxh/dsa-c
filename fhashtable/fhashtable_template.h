@@ -766,7 +766,7 @@ FUNCTION_LINKAGE void JOIN(FHASHTABLE_NAME, copy)(FHASHTABLE_TYPE *restrict dest
     assert(dest_ptr->count == 0);
 
     for (uint32_t i = 0; i < src_ptr->capacity; i++) {
-        dest_ptr->slots[i] = src_ptr->slots[i];
+        JOIN(FHASHTABLE_NAME, insert)(dest_ptr, src_ptr->slots[i].key, src_ptr->slots[i].value);
     }
 
     dest_ptr->count = src_ptr->count;
