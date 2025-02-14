@@ -628,7 +628,7 @@ $(function(){initNavTree('fhashtable__template_8h_source.html',''); initResizabl
 <div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span>    assert(dest_ptr-&gt;count == 0);</div>
 <div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span> </div>
 <div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span>    <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; src_ptr-&gt;capacity; i++) {</div>
-<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span>        dest_ptr-&gt;slots[i] = src_ptr-&gt;slots[i];</div>
+<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span>        <a class="code hl_define" href="fhashtable__template_8h.html#a1665af4d61d120cdba4d77101d179703">JOIN</a>(FHASHTABLE_NAME, insert)(dest_ptr, src_ptr-&gt;slots[i].key, src_ptr-&gt;slots[i].value);</div>
 <div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span>    }</div>
 <div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span> </div>
 <div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span>    dest_ptr-&gt;count = src_ptr-&gt;count;</div>
