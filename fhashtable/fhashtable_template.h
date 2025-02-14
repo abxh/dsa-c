@@ -765,7 +765,7 @@ FUNCTION_LINKAGE void JOIN(FHASHTABLE_NAME, copy)(FHASHTABLE_TYPE *restrict dest
     assert(src_ptr->capacity <= dest_ptr->capacity);
     assert(dest_ptr->count == 0);
 
-    size_t index;
+    uint32_t index;
     KEY_TYPE key;
     VALUE_TYPE value;
     FHASHTABLE_FOR_EACH(src_ptr, index, key, value) {
